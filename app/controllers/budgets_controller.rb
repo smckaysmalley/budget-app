@@ -106,7 +106,7 @@ class BudgetsController < ApplicationController
     end
     
     def time_range_for( year, month )
-        return (Time.new(year, month) - 1.day + 23.hour + 59.minute + 59.second...Time.new(year, month) + 1.month - 1.day)
+        return (Date.new(year, month) - 1.day + 23.hour + 59.minute + 59.second...Date.new(year, month) + 1.month - 1.day)
     end
     
     def format_date(string_date)
