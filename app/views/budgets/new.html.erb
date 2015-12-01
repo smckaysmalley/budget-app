@@ -1,0 +1,36 @@
+<h1 class="page-header">New Entry</h1>
+<%= form_for @budget, :html => { :class => "form-horizontal" } do |b| %> 
+  <fieldset>
+    <div class="form-group"> 
+      <%= b.label :owner, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= b.select :owner, ["Ally", "McKay"], {}, { :class => "form-control" } %>
+      </div>
+    </div>
+    <div class="form-group"> 
+      <%= b.label :description, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= b.text_field :description, :class => "form-control", :placeholder  => "Enter a brief description..." %> 
+      </div>
+    </div>
+    <div class="form-group"> 
+      <%= b.label :amount, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <%= b.text_field :amount, :class => "form-control" %> 
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= b.label :date, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= b.date_field :spent_on, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group pull-right"> 
+      <%= b.submit "Submit", :class => "btn btn-primary" %>
+      <%= link_to "Cancel", "/", :class => "btn btn-default" %>
+    </div>
+  </fieldset>
+<% end %>
