@@ -14564,3 +14564,625 @@ Processing by BudgetsController#home as HTML
   [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  ORDER BY "budgets"."spent_on" ASC[0m
   Rendered budgets/home.html.erb within layouts/application (2.1ms)
 Completed 200 OK in 41ms (Views: 34.3ms | ActiveRecord: 0.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["owner", "McKay"], ["description", "Default"], ["amount", 30.0], ["spent_on", "2015-11-01"], ["created_at", "2016-03-31 23:12:59.950267"], ["updated_at", "2016-03-31 23:12:59.950267"]]
+  [1m[35m (20.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["owner", "Ally"], ["description", "Default"], ["amount", 30.0], ["spent_on", "2015-11-01"], ["created_at", "2016-03-31 23:12:59.985124"], ["updated_at", "2016-03-31 23:12:59.985124"]]
+  [1m[36m (11.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "allowances" ("owner", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["owner", "McKay"], ["amount", 0.0], ["created_at", "2016-03-31 23:13:00.011083"], ["updated_at", "2016-03-31 23:13:00.011083"]]
+  [1m[35m (11.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "allowances" ("owner", "amount", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["owner", "Ally"], ["amount", 0.0], ["created_at", "2016-03-31 23:13:00.025079"], ["updated_at", "2016-03-31 23:13:00.025079"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:14:27 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BudgetsController#home as HTML
+  [1m[35mBudget Load (0.4ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.4ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "Ally"]]
+  [1m[36mAllowance Load (0.3ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "allowances" SET "amount" = ?, "updated_at" = ? WHERE "allowances"."id" = ?[0m  [["amount", 60.0], ["updated_at", "2016-03-31 23:14:28.085137"], ["id", 2]]
+  [1m[35m (11.4ms)[0m  commit transaction
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "allowances" SET "amount" = ?, "updated_at" = ? WHERE "allowances"."id" = ?  [["amount", 60.0], ["updated_at", "2016-03-31 23:14:28.108952"], ["id", 1]]
+  [1m[36m (9.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36mAllowance Load (0.2ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC
+  Rendered budgets/home.html.erb within layouts/application (67.2ms)
+Completed 200 OK in 465ms (Views: 331.3ms | ActiveRecord: 27.2ms)
+
+
+Started GET "/assets/budgets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 159.118.140.153 at 2016-03-31 23:14:29 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/superhero.min.self-9ae5c61d821804962385ca2f0024ed93309cd668ab766d3e69c04f9b4f537610.css?body=1" for 159.118.140.153 at 2016-03-31 23:14:29 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 159.118.140.153 at 2016-03-31 23:14:30 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 159.118.140.153 at 2016-03-31 23:14:30 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 159.118.140.153 at 2016-03-31 23:14:30 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/budgets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 159.118.140.153 at 2016-03-31 23:14:30 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 159.118.140.153 at 2016-03-31 23:14:30 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 159.118.140.153 at 2016-03-31 23:14:30 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/budgets" for 159.118.140.153 at 2016-03-31 23:15:11 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vevW5zUUYGkFA6o5m6OGLTooDJPazDi0OJ6IIfVMRllGQjrFs3v8DThjAMM0wMrlsWfXMrgJF884ud4yPAkpFw==", "budget"=>{"owner"=>"McKay", "description"=>"Ski Day", "amount"=>"50.85", "spent_on"=>"2016-03-22"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["owner", "McKay"], ["description", "Ski Day"], ["amount", 50.85], ["spent_on", "2016-03-22"], ["created_at", "2016-03-31 23:15:11.683887"], ["updated_at", "2016-03-31 23:15:11.683887"]]
+  [1m[36m (8.4ms)[0m  [1mcommit transaction[0m
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 14ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:15:11 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[35mBudget Load (0.3ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "Ally"]]
+  [1m[36mAllowance Load (0.2ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mBudget Load (0.2ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "McKay"]]
+  [1m[36mAllowance Load (0.2ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.4ms)[0m  SELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC
+  Rendered budgets/home.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 125ms (Views: 100.4ms | ActiveRecord: 3.2ms)
+
+
+Started DELETE "/budgets/9" for 159.118.140.153 at 2016-03-31 23:15:32 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Zg909kncPCWs5qyEk5wagB3ceE8KIG+p3zs4UIyYq66dppjUz7OgQZGGBn48/1ZIlpOj7mjlQNLfHG5DRd3E4A==", "id"=>"9"}
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "budgets" WHERE "budgets"."id" = ?[0m  [["id", 9]]
+  [1m[35m (12.9ms)[0m  commit transaction
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 136ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:15:32 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (1.7ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC[0m
+  Rendered budgets/home.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 127ms (Views: 89.2ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/budgets" for 159.118.140.153 at 2016-03-31 23:16:18 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FNRG48aCoLZS45UsTCpkoO8YZ42jUQiFTP9UsQTacKfvfarBQO080m+DP9bjSShoZFe8LMGUJ/5M2AKizZ8f6Q==", "budget"=>{"owner"=>"McKay", "description"=>"2 stroke oil", "amount"=>"13.00", "spent_on"=>"2016-03-03"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["owner", "McKay"], ["description", "2 stroke oil"], ["amount", 13.0], ["spent_on", "2016-03-03"], ["created_at", "2016-03-31 23:16:18.938865"], ["updated_at", "2016-03-31 23:16:18.938865"]]
+  [1m[35m (21.1ms)[0m  commit transaction
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 43ms (ActiveRecord: 21.8ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:16:19 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.4ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.4ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.5ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC[0m
+  Rendered budgets/home.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 203ms (Views: 121.6ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/budgets" for 159.118.140.153 at 2016-03-31 23:16:39 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z8wOdX/Cg6eTchOf1mPzxxCy0+z+J0DISbtx6fO6xMOcZeJX+a0fw64SuWV5AL8Pm/0ITZzib7NJnCf6Ov+rjQ==", "budget"=>{"owner"=>"Ally", "description"=>"Candy", "amount"=>"5.43", "spent_on"=>"2016-03-15"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["owner", "Ally"], ["description", "Candy"], ["amount", 5.43], ["spent_on", "2016-03-15"], ["created_at", "2016-03-31 23:16:39.601993"], ["updated_at", "2016-03-31 23:16:39.601993"]]
+  [1m[35m (141.8ms)[0m  commit transaction
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 148ms (ActiveRecord: 142.2ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:16:39 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC[0m
+  Rendered budgets/home.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 91ms (Views: 69.0ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/budgets" for 159.118.140.153 at 2016-03-31 23:17:02 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gD34QxRppkFOyH3xzyLy/NtR+XSK8993wAU4wbYIADt7lBRhkgY6JXOo1wtgQb40UB4i1eg28AzAIm7Sf01vdQ==", "budget"=>{"owner"=>"Ally", "description"=>"Shoes", "amount"=>"19.99", "spent_on"=>"2016-03-18"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["owner", "Ally"], ["description", "Shoes"], ["amount", 19.99], ["spent_on", "2016-03-18"], ["created_at", "2016-03-31 23:17:02.338964"], ["updated_at", "2016-03-31 23:17:02.338964"]]
+  [1m[35m (16.8ms)[0m  commit transaction
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 25ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:17:02 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[36mBudget Load (0.4ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.3ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.5ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC[0m
+  Rendered budgets/home.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 109ms (Views: 73.8ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/budgets" for 159.118.140.153 at 2016-03-31 23:17:26 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mdflLBFpbUo+TPdK0eM1Xv61vWiw3siwAlyhJpsglaBifgkOlwbxLgMsXbB+gHmWdfpmydIb58sCe/c1UmX67g==", "budget"=>{"owner"=>"McKay", "description"=>"Dirt Bike Gloves", "amount"=>"12.99", "spent_on"=>"2016-03-12"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["owner", "McKay"], ["description", "Dirt Bike Gloves"], ["amount", 12.99], ["spent_on", "2016-03-12"], ["created_at", "2016-03-31 23:17:26.018880"], ["updated_at", "2016-03-31 23:17:26.018880"]]
+  [1m[35m (7.6ms)[0m  commit transaction
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 113ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:17:26 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[36mBudget Load (0.4ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.4ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC[0m
+  Rendered budgets/home.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 95ms (Views: 75.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/budgets" for 159.118.140.153 at 2016-03-31 23:18:02 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lK3anAFrvv7z3XpDkdOzPS1q3I/bL3gAW2fYoqPcUWBvBDa+hwQims690Lk+sP/1piUHLrnqV3tbQI6xapk+Lg==", "budget"=>{"owner"=>"McKay", "description"=>"Lunch", "amount"=>"4.35", "spent_on"=>"2016-03-18"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["owner", "McKay"], ["description", "Lunch"], ["amount", 4.35], ["spent_on", "2016-03-18"], ["created_at", "2016-03-31 23:18:02.334259"], ["updated_at", "2016-03-31 23:18:02.334259"]]
+  [1m[35m (25.0ms)[0m  commit transaction
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 50ms (ActiveRecord: 25.6ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-03-31 23:18:02 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (1.7ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.4ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  ORDER BY "budgets"."spent_on" ASC[0m
+  Rendered budgets/home.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 130ms (Views: 79.9ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 157.201.123.62 at 2016-04-19 21:08:10 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BudgetsController#home as HTML
+  [1m[35mBudget Load (0.6ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "allowances" SET "amount" = ?, "updated_at" = ? WHERE "allowances"."id" = ?  [["amount", 64.58], ["updated_at", "2016-04-19 21:08:10.977942"], ["id", 2]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mBudget Load (0.2ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.1ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "allowances" SET "amount" = ?, "updated_at" = ? WHERE "allowances"."id" = ?  [["amount", 59.66], ["updated_at", "2016-04-19 21:08:10.999341"], ["id", 1]]
+  [1m[36m (9.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36mAllowance Load (0.1ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-03-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-04-30')  ORDER BY "budgets"."spent_on" ASC
+  Rendered budgets/home.html.erb within layouts/application (64.5ms)
+Completed 200 OK in 404ms (Views: 304.9ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/assets/budgets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 157.201.123.62 at 2016-04-19 21:08:11 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/superhero.min.self-9ae5c61d821804962385ca2f0024ed93309cd668ab766d3e69c04f9b4f537610.css?body=1" for 157.201.123.62 at 2016-04-19 21:08:11 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 157.201.123.62 at 2016-04-19 21:08:11 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 157.201.123.62 at 2016-04-19 21:08:11 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 157.201.123.62 at 2016-04-19 21:08:12 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 157.201.123.62 at 2016-04-19 21:08:12 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/budgets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 157.201.123.62 at 2016-04-19 21:08:12 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 157.201.123.62 at 2016-04-19 21:08:12 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 157.201.123.62 at 2016-04-19 21:09:30 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  [["owner", "Ally"]]
+  [1m[36mAllowance Load (0.1ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mBudget Load (0.2ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')[0m  [["owner", "McKay"]]
+  [1m[35mAllowance Load (0.1ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "Ally"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-03-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-04-30')  ORDER BY "budgets"."spent_on" ASC[0m
+  Rendered budgets/home.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 180ms (Views: 81.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/superhero.min.self-9ae5c61d821804962385ca2f0024ed93309cd668ab766d3e69c04f9b4f537610.css?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/budgets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/budgets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 157.201.123.62 at 2016-04-19 21:09:31 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 157.201.123.62 at 2016-04-19 21:09:41 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[35mBudget Load (0.3ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.4ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  [["owner", "McKay"]]
+  [1m[36mAllowance Load (0.1ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-03-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-04-30')  ORDER BY "budgets"."spent_on" ASC
+  Rendered budgets/home.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 264ms (Views: 121.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/budgets" for 157.201.123.62 at 2016-04-19 21:12:00 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tb1ohBP9gGtk47sR9tkjBvEh05k+TZ2+jWuI2sDN+2JoRkMoMM9tVDiZZFRyrbb9TrkXsp1TCNq153YYnTXrDg==", "budget"=>{"owner"=>"McKay", "description"=>"Lunch", "amount"=>"2.35", "spent_on"=>"2016-04-19"}, "commit"=>"Submit"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "budgets" ("owner", "description", "amount", "spent_on", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["owner", "McKay"], ["description", "Lunch"], ["amount", 2.35], ["spent_on", "2016-04-19"], ["created_at", "2016-04-19 21:12:00.691724"], ["updated_at", "2016-04-19 21:12:00.691724"]]
+  [1m[36m (64.2ms)[0m  [1mcommit transaction[0m
+Redirected to https://budget-app-smckaysmalley.c9users.io/
+Completed 302 Found in 71ms (ActiveRecord: 64.7ms)
+
+
+Started GET "/" for 157.201.123.62 at 2016-04-19 21:12:00 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[35mBudget Load (0.2ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.1ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  [["owner", "McKay"]]
+  [1m[36mAllowance Load (0.1ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-03-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-04-30')  ORDER BY "budgets"."spent_on" ASC
+  Rendered budgets/home.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 70ms (Views: 50.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/budgets/15/edit" for 157.201.123.62 at 2016-04-19 21:12:13 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#edit as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mBudget Load (0.3ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."id" = ? LIMIT 1[0m  [["id", 15]]
+  Rendered budgets/edit.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 253ms (Views: 250.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 157.201.123.62 at 2016-04-19 21:12:21 +0000
+Cannot render console from 157.201.123.62! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by BudgetsController#home as HTML
+  [1m[35mBudget Load (0.3ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.5ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.1ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  [["owner", "McKay"]]
+  [1m[36mAllowance Load (0.1ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.4ms)[0m  SELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-03-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-04-30')  ORDER BY "budgets"."spent_on" ASC
+  Rendered budgets/home.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 262ms (Views: 51.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for 159.118.140.153 at 2016-04-26 03:54:08 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BudgetsController#home as HTML
+  [1m[35mBudget Load (0.4ms)[0m  SELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.4ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.5ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')[0m  [["owner", "Ally"]]
+  [1m[35mBudget Load (2.7ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')  [["owner", "Ally"]]
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')[0m  [["owner", "Ally"]]
+  [1m[35mAllowance Load (0.2ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mBudget Load (0.2ms)[0m  [1mSELECT  "budgets".* FROM "budgets" WHERE "budgets"."owner" = ?  ORDER BY "budgets"."spent_on" ASC LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-10-31 23:59:59.000000' AND "budgets"."spent_on" < '2015-11-30')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-11-30 23:59:59.000000' AND "budgets"."spent_on" < '2015-12-31')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.1ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2015-12-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-01-31')  [["owner", "McKay"]]
+  [1m[36mBudget Load (0.1ms)[0m  [1mSELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-01-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-02-29')[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.2ms)[0m  SELECT "budgets".* FROM "budgets" WHERE "budgets"."owner" = ? AND ("budgets"."spent_on" >= '2016-02-29 23:59:59.000000' AND "budgets"."spent_on" < '2016-03-31')  [["owner", "McKay"]]
+  [1m[36mAllowance Load (0.1ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1  [["owner", "Ally"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "allowances".* FROM "allowances" WHERE "allowances"."owner" = ? LIMIT 1[0m  [["owner", "McKay"]]
+  [1m[35mBudget Load (0.3ms)[0m  SELECT "budgets".* FROM "budgets" WHERE ("budgets"."spent_on" >= '2016-03-31 23:59:59.000000' AND "budgets"."spent_on" < '2016-04-30')  ORDER BY "budgets"."spent_on" ASC
+  Rendered budgets/home.html.erb within layouts/application (56.9ms)
+Completed 200 OK in 471ms (Views: 379.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/assets/budgets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/superhero.min.self-9ae5c61d821804962385ca2f0024ed93309cd668ab766d3e69c04f9b4f537610.css?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/budgets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 159.118.140.153 at 2016-04-26 03:54:09 +0000
+Cannot render console from 159.118.140.153! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
