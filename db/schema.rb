@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151201050840) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "allowances", force: :cascade do |t|
     t.text     "owner"
     t.float    "amount"
